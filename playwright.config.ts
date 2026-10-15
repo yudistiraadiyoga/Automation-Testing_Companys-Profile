@@ -1,19 +1,25 @@
 /// <reference types="node" />
 import { defineConfig, devices } from '@playwright/test';
+import { SITE, SITE_NAME } from './src/config';
 
 /**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
+ * Struktur project:
+ * - chromium       : semua test UI (tests/common + tests/sites/<SITE>)
+ * - api            : api.spec.ts (memanggil server sungguhan)
+ * - cross browsing : crossBrowsing.spec.ts di Chrome, Firefox, Safari, Edge, Chrome Android, Safari iOS
+ *
+ * Website yang dites dipilih lewat env SITE (default: yovela), lihat src/config/index.ts.
  * See https://playwright.dev/docs/test-configuration.
  */
+const CROSS_BROWSING = /crossBrowsing\.spec\.ts/;
+const API = /api\.spec\.ts/;
+
+// Lewati folder test milik website lain: tests/sites/<bukan SITE aktif>/...
+const OTHER_SITES = new RegExp(`sites[\\\\/](?!${SITE_NAME}[\\\\/])`);
+
 export default defineConfig({
   testDir: './src/tests',
+  testIgnore: [OTHER_SITES],
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -23,58 +29,53 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['list'], ['html', { open: 'never' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
+    baseURL: SITE.baseUrl,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
   },
 
-  /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      testIgnore: [API, OTHER_SITES],
+    },
+    {
+      name: 'api',
+      testMatch: API,
+      use: { ...devices['Desktop Chrome'] },
+      fullyParallel: false,
     },
 
+    /* Cross browsing (chromium di atas juga menjalankan crossBrowsing.spec.ts) */
     {
       name: 'firefox',
+      testMatch: CROSS_BROWSING,
       use: { ...devices['Desktop Firefox'] },
     },
-
     {
       name: 'webkit',
+      testMatch: CROSS_BROWSING,
       use: { ...devices['Desktop Safari'] },
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: 'edge',
+      testMatch: CROSS_BROWSING,
+      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    },
+    {
+      name: 'mobile-chrome',
+      testMatch: CROSS_BROWSING,
+      use: { ...devices['Pixel 7'] },
+    },
+    {
+      name: 'mobile-safari',
+      testMatch: CROSS_BROWSING,
+      use: { ...devices['iPhone 15'] },
+    },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });

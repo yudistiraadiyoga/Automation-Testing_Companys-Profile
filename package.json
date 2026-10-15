@@ -1,7 +1,14 @@
 {
   "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.5"
   },
-  "scripts": {}
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --project=chromium --grep-invert \"Cross Browsing\"",
+    "test:api": "playwright test --project=api",
+    "test:cross": "playwright test crossBrowsing",
+    "report": "playwright show-report"
+  }
 }
