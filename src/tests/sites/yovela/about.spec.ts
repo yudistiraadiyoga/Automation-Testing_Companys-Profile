@@ -66,3 +66,37 @@ test.describe("About - Positive", () => {
   });
 });
 
+// =====================================================================
+// NEGATIVE
+// =====================================================================
+test.describe("About - Negative", () => {
+  test("TCA-05 Verifikasi kartu info perusahaan di layar 320px", async ({ page }) => {
+    await setWidth(page, 320);
+    await openHome(page);
+    await scrollToSection(page, "about");
+
+    await expectNoHorizontalScroll(page);
+    await expectInsideViewportWidth(page, ".company-card .card-item span");
+  });
+
+  test("TCA-06 Verifikasi ikon nilai perusahaan saat gagal dimuat", async ({ page }) => {
+    await blockResources(page, ["svg", "png", "jpg", "webp", "woff2"]);
+    await openHome(page);
+    await scrollToSection(page, "about");
+
+    await expect(page.locator(".value-label")).toHaveText(["Integrity", "Quality", "Partnership"]);
+    expect(await countBrokenImages(page), "Ada ikon gambar rusak").toBe(0);
+  });
+
+  test("TCA-07 Verifikasi teks legal dapat diseleksi dan disalin", async ({ page }) => {
+    await openHome(page);
+    await scrollToSection(page, "about");
+
+    // Teks bisa diseleksi (user-select bukan "none")
+    await expect(cardValue(page, "Companies Registry No.")).not.toHaveCSS("user-select", "none");
+
+    // Isi teks persis, tanpa spasi/karakter tersembunyi
+    expect(await cardValue(page, "Companies Registry No.").textContent()).toBe("3305282");
+    expect(await cardValue(page, "Business Registration No.").textContent()).toBe("75580592");
+  });
+});
