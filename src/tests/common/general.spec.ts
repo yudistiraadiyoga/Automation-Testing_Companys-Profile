@@ -14,6 +14,7 @@ import {
   scrollToSection,
   setWidth,
   trackPageErrors,
+  waitForAnimations,
   waitForScrollEnd,
 } from "../../helpers/base.helper";
 import { clickNavMenu, navMenu } from "../../helpers/navbar.helper";
@@ -173,6 +174,7 @@ test.describe("General - JavaScript dinonaktifkan", () => {
     for (const section of SECTIONS) {
       test(`Judul section #${section.id} tetap terlihat`, async ({ page }) => {
         await page.goto(BASE_URL);
+        await waitForAnimations(page); // tunggu animasi masuk (fade-in) selesai
         const title = page.locator(`#${section.id}`).getByText(section.title).first();
 
         // checkVisibility() mengecek apakah elemen benar-benar terlihat,

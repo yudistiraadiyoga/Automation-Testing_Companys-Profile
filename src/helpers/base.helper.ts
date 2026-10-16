@@ -47,6 +47,19 @@ export async function waitForScrollEnd(page: Page) {
   }
 }
 
+// Tunggu semua animasi CSS yang punya akhir (fade-in, slide, dll.) selesai.
+// Animasi yang berulang terus (infinite) diabaikan karena tidak pernah selesai.
+export async function waitForAnimations(page: Page) {
+  await page.evaluate(async () => {
+    const animations = document.getAnimations();
+    const finiteAnimations = animations.filter((animation) => {
+      const endTime = animation.effect?.getComputedTiming().endTime;
+      return endTime !== Infinity;
+    });
+    await Promise.all(finiteAnimations.map((animation) => animation.finished));
+  });
+}
+
 // Scroll ke section tertentu tanpa lewat navbar
 export async function scrollToSection(page: Page, id: string) {
   await page.locator(`#${id}`).scrollIntoViewIfNeeded();
