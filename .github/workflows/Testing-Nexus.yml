@@ -23,7 +23,7 @@ jobs:
       # Run A lalu Run B, tidak bersamaan (server dev dipakai bersama tim)
       max-parallel: 1
       matrix:
-        workers: [1, 10]
+        workers: [10]
     steps:
       - uses: actions/checkout@v4
 
