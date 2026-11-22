@@ -3,15 +3,19 @@
     "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.5",
+    "cross-env": "^10.1.0",
     "exceljs": "^4.4.0",
     "tsx": "^4.23.15"
   },
   "scripts": {
     "test": "playwright test",
-    "test:ui": "playwright test --project=chromium --grep-invert \"Cross Browsing\"",
+    "test:ui": "playwright test --project=chromium --ui",
     "test:api": "playwright test --project=api",
     "test:cross": "playwright test crossBrowsing",
     "report": "playwright show-report",
-    "bug-report": "tsx scripts/generateBugReport.ts"
+    "bug-report": "tsx scripts/generateBugReport.ts",
+    "demo": "cross-env DEMO=true playwright test --project=chromium --grep \"Menu (About|Products|Contact)|TCC-04|TCC-20|Lebar 820px\"",
+    "demo:report": "playwright show-report reports/demo/html",
+    "demo:bug-report": "cross-env REPORT_DIR=reports/demo tsx scripts/generateBugReport.ts"
   }
 }
