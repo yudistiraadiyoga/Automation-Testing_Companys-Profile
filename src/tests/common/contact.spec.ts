@@ -89,22 +89,30 @@ test.describe("Contact - Konten & Positive", () => {
 
   test.describe("TCC-18 Verifikasi label terhubung ke input", () => {
     const dataUji = [
-      { label: form.labels.name, field: "name" },
-      { label: form.labels.company, field: "company" },
-      { label: form.labels.email, field: "email" },
-      { label: form.labels.interest, field: "interest" },
-      { label: form.labels.message, field: "message" },
-    ] as const;
+    { label: form.labels.name, field: "name" },
+    { label: form.labels.company, field: "company" },
+    { label: form.labels.email, field: "email" },
+    { label: form.labels.interest, field: "interest" },
+    { label: form.labels.message, field: "message" },
+  ] as const;
 
-    for (const data of dataUji) {
-      test(`Klik label "${data.label}"`, async ({ page }) => {
-        await openContactForm(page);
+  for (const data of dataUji) {
+    test(`Klik label "${data.label}"`, async ({ page }) => {
+      await openContactForm(page);
 
-        await page.locator(`${contactSection} form label`, { hasText: data.label }).first().click();
+      const field = formField(page)[data.field];
 
-        await expect(formField(page)[data.field]).toBeFocused();
-      });
-    }
+      // Pastikan label terhubung dengan input
+      const label = page
+        .locator(contactSection)
+        .getByLabel(data.label);
+
+      await label.click();
+
+      // Verifikasi input mendapatkan focus
+      await expect(field).toBeFocused();
+    });
+  }
   });
 });
 
