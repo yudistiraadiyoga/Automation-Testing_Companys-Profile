@@ -89,22 +89,30 @@ test.describe("Contact - Konten & Positive", () => {
 
   test.describe("TCC-18 Verifikasi label terhubung ke input", () => {
     const dataUji = [
-      { label: form.labels.name, field: "name" },
-      { label: form.labels.company, field: "company" },
-      { label: form.labels.email, field: "email" },
-      { label: form.labels.interest, field: "interest" },
-      { label: form.labels.message, field: "message" },
-    ] as const;
+    { label: form.labels.name, field: "name" },
+    { label: form.labels.company, field: "company" },
+    { label: form.labels.email, field: "email" },
+    { label: form.labels.interest, field: "interest" },
+    { label: form.labels.message, field: "message" },
+  ] as const;
 
-    for (const data of dataUji) {
-      test(`Klik label "${data.label}"`, async ({ page }) => {
-        await openContactForm(page);
+  for (const data of dataUji) {
+    test(`Klik label "${data.label}"`, async ({ page }) => {
+      await openContactForm(page);
 
-        await page.locator(`${contactSection} form label`, { hasText: data.label }).first().click();
+      const field = formField(page)[data.field];
 
-        await expect(formField(page)[data.field]).toBeFocused();
-      });
-    }
+      // Pastikan label terhubung dengan input
+      const label = page
+        .locator(contactSection)
+        .getByLabel(data.label);
+
+      await label.click();
+
+      // Verifikasi input mendapatkan focus
+      await expect(field).toBeFocused();
+    });
+  }
   });
 });
 
@@ -476,6 +484,3 @@ test.describe("Contact - JavaScript dinonaktifkan", () => {
 manualTest("TCC-19 Verifikasi enquiry diterima di email admin", "cek inbox admin (jalankan TCC-04 dengan REAL_API=true)");
 manualTest("TCC-61 Verifikasi validasi tetap berjalan dengan autofill browser", "autofill browser tidak bisa diotomasi");
 manualTest("TCC-62 Verifikasi pesan error dibacakan NVDA / VoiceOver", "perlu screen reader sungguhan");
-
-
-
