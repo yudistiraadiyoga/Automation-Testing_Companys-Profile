@@ -104,6 +104,18 @@ Nama tester bisa diisi otomatis: `TESTER=Lavy pnpm run bug-report`.
 - `results.json` selalu berisi hasil run **terakhir**. Kalau barusan menjalankan satu test saja (`-g "TCC-04"`), jalankan ulang suite lengkap sebelum membuat bug report.
 - Kolom Status Dev dan Developer dibiarkan kosong untuk diisi developer. Status Test otomatis diisi **New**.
 
+## Mode demo (untuk presentasi)
+
+```bash
+pnpm run demo              # 6 test pilihan, browser terlihat, gerakan diperlambat (±1 menit)
+pnpm run demo:report       # buka laporan HTML hasil demo
+pnpm run demo:bug-report   # buat bug report Excel dari hasil demo
+```
+
+- Hasil demo disimpan terpisah di `reports/demo/`, jadi hasil test lengkap di `reports/` tidak tertimpa.
+- Latihan tanpa membuka browser: `HEADLESS=true pnpm run demo`.
+- Di akhir demo akan muncul `ELIFECYCLE ... exit code 1`. Itu normal karena ada test yang gagal (bug yang memang ditemukan).
+
 ## Pola penulisan test
 
 Kasus negatif yang langkahnya sama dan hanya berbeda input ditulis dalam satu `describe` dengan tabel data uji:

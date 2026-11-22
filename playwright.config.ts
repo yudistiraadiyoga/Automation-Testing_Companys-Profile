@@ -17,6 +17,11 @@ const API = /api\.spec\.ts/;
 // Lewati folder test milik website lain: tests/sites/<bukan SITE aktif>/...
 const OTHER_SITES = new RegExp(`sites[\\\\/](?!${SITE_NAME}[\\\\/])`);
 
+// Mode demo (pnpm run demo): browser terlihat, gerakan diperlambat, test jalan satu per satu.
+// Hasil demo disimpan terpisah di reports/demo supaya hasil test lengkap tidak tertimpa.
+const DEMO = process.env.DEMO === 'true';
+const REPORT_DIR = DEMO ? 'reports/demo' : 'reports';
+
 export default defineConfig({
   testDir: './src/tests',
   testIgnore: [OTHER_SITES],
@@ -27,16 +32,23 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI || DEMO ? 6 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   /* results.json dipakai untuk membuat bug report Excel (pnpm run bug-report) */
-  reporter: [['list'], ['html', { open: 'never' }], ['json', { outputFile: 'reports/results.json' }]],
+  reporter: [
+    ['list'],
+    ['html', { open: 'never', outputFolder: DEMO ? `${REPORT_DIR}/html` : 'playwright-report' }],
+    ['json', { outputFile: `${REPORT_DIR}/results.json` }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: SITE.baseUrl,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    /* Mode demo: tampilkan browser dan perlambat setiap aksi 700 ms */
+    headless: !DEMO || process.env.HEADLESS === 'true', // HEADLESS=true: latihan demo tanpa membuka browser
+    launchOptions: { slowMo: DEMO ? 700 : 0 },
   },
 
   projects: [

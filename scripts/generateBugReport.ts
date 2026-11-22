@@ -18,9 +18,10 @@ import path from "path";
 import { SITE } from "../src/config";
 import { BUG_CATALOG, BugInfo, Severity, findBugByTc } from "../src/data/bugCatalog.data";
 
-const RESULTS_FILE = "reports/results.json";
+// Folder hasil test (default "reports", untuk demo "reports/demo")
+const OUTPUT_FOLDER = process.env.REPORT_DIR ?? "reports";
+const RESULTS_FILE = `${OUTPUT_FOLDER}/results.json`;
 const TEMPLATE_FILE = "src/data/Template Bug Report.xlsx";
-const OUTPUT_FOLDER = "reports";
 const SHEET_NAME = "Staging";
 const FIRST_BUG_ROW = 3; // baris 1 = header, baris 2 = tanggal, bug mulai baris 3
 const TESTER = process.env.TESTER ?? "";
