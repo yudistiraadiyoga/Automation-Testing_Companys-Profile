@@ -78,7 +78,19 @@ jobs:
           --retries=0
           --reporter=html,json,list
           ${RETEST_GREP:+--grep "$RETEST_GREP"}
-          "src/tests/**/*.spec.ts"
+          "src/tests/common/api.spec.ts"
+          "src/tests/common/contact.spec.ts"
+          "src/tests/common/crossBrowsing.spec.ts"
+          "src/tests/common/footer.spec.ts"
+          "src/tests/common/general.spec.ts"
+          "src/tests/common/hero.spec.ts"
+          "src/tests/common/navigationBar.spec.ts"
+          "src/tests/sites/Nexus/about.spec.ts"
+          "src/tests/sites/Nexus/contactInfo.spec.ts"
+          "src/tests/sites/Nexus/globalTrade.spec.ts"
+          "src/tests/sites/Nexus/product.spec.ts"
+          "src/tests/sites/Nexus/whyUs.spec.ts"
+
 
       - name: Catat waktu selesai
         if: always()
