@@ -90,6 +90,8 @@ jobs:
           "src/tests/sites/Nexus/globalTrade.spec.ts"
           "src/tests/sites/Nexus/product.spec.ts"
           "src/tests/sites/Nexus/whyUs.spec.ts"
+          pnpm exec playwright show-report --json > results-${{ matrix.workers }}w.json
+          
 
       - name : Generate report
         if: always()
