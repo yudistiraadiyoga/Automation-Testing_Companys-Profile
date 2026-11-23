@@ -7,6 +7,12 @@
 #
 # Tidak butuh Secrets: URL dan akun uji ditulis langsung di spec/helper,
 # THINK_TIME_MS / LOAD_TIME_MS / VITE_API_URL punya nilai default.
+#
+# Hasil run:
+#   reports/results.json   -> hasil test (dibaca script bug report)
+#   reports/Bug Report - Nexus TradeTech Limited - <tanggal>.xlsx
+#   reports/attachments/   -> screenshot tiap bug
+#   playwright-report/     -> HTML report
 name: Nexus Testing
 
 on:
@@ -15,7 +21,7 @@ on:
 
 jobs:
   test:
-    name: Regresi ${{ matrix.workers }} worker
+    name: Regression ${{ matrix.workers }} worker
     runs-on: ubuntu-latest
     timeout-minutes: 300
     strategy:
@@ -23,7 +29,7 @@ jobs:
       # Run A lalu Run B, tidak bersamaan (server dev dipakai bersama tim)
       max-parallel: 1
       matrix:
-        workers: [1, 10]
+        workers: [10]
     steps:
       - uses: actions/checkout@v4
 
@@ -68,17 +74,59 @@ jobs:
       # Retest: bila .github/retest-grep.txt berisi pola, hanya test yang judulnya
       # cocok yang dijalankan (mis. TC yang diperbaiki setelah run penuh). Kosongkan
       # file tersebut untuk kembali ke run penuh.
+      #
+      # Hasil JSON ditaruh di reports/results.json supaya bisa dibaca
+      # scripts/generateBugReport.ts (REPORT_DIR=reports). Dua nama env var
+      # dipakai karena Playwright >= 1.45 memakai PLAYWRIGHT_JSON_OUTPUT_FILE
+      # dan nama lama PLAYWRIGHT_JSON_OUTPUT_NAME; keduanya menunjuk file sama.
+      # Reporter (list/html/json) diambil dari playwright.config.ts, jadi tidak
+      # perlu --reporter di sini (flag CLI akan mengabaikan outputFile di config).
       - name: Jalankan pengujian
         env:
-          PLAYWRIGHT_JSON_OUTPUT_NAME: results-${{ matrix.workers }}w.json
-        run: >
-          pnpm exec playwright test
-          --project=chromium
-          --workers=${{ matrix.workers }}
-          --retries=0
-          --reporter=html,json,list
-          ${RETEST_GREP:+--grep "$RETEST_GREP"}
-          "src/tests/**/*.spec.ts"
+          SITE: nexus
+          PLAYWRIGHT_JSON_OUTPUT_FILE: reports/results.json
+          PLAYWRIGHT_JSON_OUTPUT_NAME: reports/results.json
+        run: |
+          mkdir -p reports
+          pnpm exec playwright test \
+            --project=chromium \
+            --workers=${{ matrix.workers }} \
+            --retries=0 \
+            ${RETEST_GREP:+--grep "$RETEST_GREP"} \
+            "src/tests/common/api.spec.ts" \
+            "src/tests/common/contact.spec.ts" \
+            "src/tests/common/crossBrowsing.spec.ts" \
+            "src/tests/common/footer.spec.ts" \
+            "src/tests/common/general.spec.ts" \
+            "src/tests/common/hero.spec.ts" \
+            "src/tests/common/navigationBar.spec.ts" \
+            "src/tests/sites/Nexus/about.spec.ts" \
+            "src/tests/sites/Nexus/contactInfo.spec.ts" \
+            "src/tests/sites/Nexus/globalTrade.spec.ts" \
+            "src/tests/sites/Nexus/product.spec.ts" \
+            "src/tests/sites/Nexus/whyUs.spec.ts"
+
+      # Bug report Excel dibuat dari reports/results.json. Tetap jalan walau
+      # test gagal (if: always()); bila results.json tidak ada, step ini hanya
+      # memberi warning agar kegagalan step test tidak tertutupi.
+      - name: Generate bug report
+        if: always()
+        env:
+          SITE: nexus
+          REPORT_DIR: reports
+          TESTER: ${{ github.actor }}
+        run: |
+          if [ ! -f reports/results.json ]; then
+            echo "::warning::reports/results.json tidak ada, bug report dilewati"
+            exit 0
+          fi
+          pnpm run bug-report
+          {
+            echo ""
+            echo "### Bug report (${{ matrix.workers }} worker)"
+            echo ""
+            find reports -maxdepth 2 -type f \( -name '*.xlsx' -o -name '*.json' \) -printf '| `%p` | %s byte |\n' | sort
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Catat waktu selesai
         if: always()
@@ -91,5 +139,7 @@ jobs:
           name: report-${{ matrix.workers }}w
           path: |
             playwright-report/
-            results-${{ matrix.workers }}w.json
+            reports/
+            test-results/
           retention-days: 30
+          if-no-files-found: warn

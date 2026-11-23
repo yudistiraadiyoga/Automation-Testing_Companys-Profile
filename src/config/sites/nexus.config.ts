@@ -1,7 +1,7 @@
 import type { SiteConfig } from "../site.types";
 
 /**
- * Konfigurasi website Yovela Trade Limited.
+ * Konfigurasi website Nexus TradeTech Limited.
  * Untuk website lain: salin file ini, ganti nilainya, lalu daftarkan di src/config/index.ts.
  */
 export const nexus: SiteConfig = {

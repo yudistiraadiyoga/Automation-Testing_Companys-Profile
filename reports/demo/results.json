@@ -1,0 +1,577 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Lavy\\Yovela_Automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=chromium",
+      "--grep",
+      "Menu (About|Products|Contact)|TCC-04|TCC-20|Lebar 820px"
+    ],
+    "configFile": "D:\\Lavy\\Yovela_Automation\\playwright.config.ts",
+    "rootDir": "D:/Lavy/Yovela_Automation/src/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/api\\.spec\\.ts/",
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "/api\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "/crossBrowsing\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "/crossBrowsing\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "/crossBrowsing\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chrome",
+        "name": "mobile-chrome",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "/crossBrowsing\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Lavy/Yovela_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-safari",
+        "name": "mobile-safari",
+        "testDir": "D:/Lavy/Yovela_Automation/src/tests",
+        "testIgnore": [
+          "/sites[\\\\/](?!yovela[\\\\/])/"
+        ],
+        "testMatch": [
+          "/crossBrowsing\\.spec\\.ts/"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Lavy\\Yovela_Automation\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "D:\\Lavy\\Yovela_Automation\\src\\tests",
+        "snapshotDir": "D:\\Lavy\\Yovela_Automation\\src\\tests",
+        "testIgnore": [
+          {},
+          {}
+        ],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://staging.yovela-trading.com/",
+          "trace": "on-first-retry",
+          "screenshot": "only-on-failure",
+          "headless": false,
+          "launchOptions": {
+            "slowMo": 700
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "reports/demo/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/demo/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "common\\contact.spec.ts",
+      "file": "common/contact.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Contact - Konten & Positive",
+          "file": "common/contact.spec.ts",
+          "line": 45,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TCC-04 Verifikasi submit form dengan data valid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14477,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T10:16:09.819Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "107621c71e27941bd1ee-ac17db6b1bda1f7c472d",
+              "file": "common/contact.spec.ts",
+              "line": 53,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Contact - Negative Field Name",
+          "file": "common/contact.spec.ts",
+          "line": 120,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TCC-20 Name angka saja: \"12345\"",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 13283,
+                      "error": {
+                        "message": "Error: Form seharusnya tidak terkirim\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Form seharusnya tidak terkirim\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at expectNotSubmitted (D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts:168:65)\n    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\contact.spec.ts:127:7",
+                        "location": {
+                          "file": "D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts",
+                          "column": 65,
+                          "line": 168
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\getInTouch.helper.ts:168\n\n\u001b[0m \u001b[90m 166 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m expectNotSubmitted(page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m sentRequests\u001b[33m:\u001b[39m \u001b[33mRequest\u001b[39m[]) {\n \u001b[90m 167 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m500\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m   expect(sentRequests\u001b[33m.\u001b[39mlength\u001b[33m,\u001b[39m \u001b[32m\"Form seharusnya tidak terkirim\"\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 169 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[33mSUCCESS_MESSAGE\u001b[39m))\u001b[33m.\u001b[39mtoBeHidden()\u001b[33m;\u001b[39m\n \u001b[90m 170 |\u001b[39m }\n \u001b[90m 171 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts",
+                            "column": 65,
+                            "line": 168
+                          },
+                          "message": "Error: Form seharusnya tidak terkirim\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\helpers\\getInTouch.helper.ts:168\n\n\u001b[0m \u001b[90m 166 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m expectNotSubmitted(page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m sentRequests\u001b[33m:\u001b[39m \u001b[33mRequest\u001b[39m[]) {\n \u001b[90m 167 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m500\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m   expect(sentRequests\u001b[33m.\u001b[39mlength\u001b[33m,\u001b[39m \u001b[32m\"Form seharusnya tidak terkirim\"\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 169 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[33mSUCCESS_MESSAGE\u001b[39m))\u001b[33m.\u001b[39mtoBeHidden()\u001b[33m;\u001b[39m\n \u001b[90m 170 |\u001b[39m }\n \u001b[90m 171 |\u001b[39m\u001b[0m\n\u001b[2m    at expectNotSubmitted (D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts:168:65)\u001b[22m\n\u001b[2m    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\contact.spec.ts:127:7\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T10:16:27.555Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-contact-Contact---N-f2c28-C-20-Name-angka-saja-12345--chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-contact-Contact---N-f2c28-C-20-Name-angka-saja-12345--chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts",
+                        "column": 65,
+                        "line": 168
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "107621c71e27941bd1ee-a6e1032d487c0b2db39d",
+              "file": "common/contact.spec.ts",
+              "line": 122,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "common\\navigationBar.spec.ts",
+      "file": "common/navigationBar.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Navigation Bar - Positive",
+          "file": "common/navigationBar.spec.ts",
+          "line": 36,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "TCN-02 s/d TCN-06 Verifikasi menu navbar mengarah ke section",
+              "file": "common/navigationBar.spec.ts",
+              "line": 49,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Menu About",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 10403,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T10:16:45.722Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aec799f2a7912f3cecfd-83a15075c2120e18add1",
+                  "file": "common/navigationBar.spec.ts",
+                  "line": 51,
+                  "column": 11
+                },
+                {
+                  "title": "Menu Products",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 8592,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T10:16:59.213Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aec799f2a7912f3cecfd-c743e6d8e0ad838fed3d",
+                  "file": "common/navigationBar.spec.ts",
+                  "line": 51,
+                  "column": 11
+                },
+                {
+                  "title": "Menu Contact",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 8669,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T10:17:08.003Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aec799f2a7912f3cecfd-a8b68d06b7936d71d589",
+                  "file": "common/navigationBar.spec.ts",
+                  "line": 51,
+                  "column": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "TCN-17 Verifikasi navbar di lebar tablet (batas breakpoint)",
+          "file": "common/navigationBar.spec.ts",
+          "line": 206,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Lebar 820px",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12583,
+                      "error": {
+                        "message": "Error: Menu hilang tanpa hamburger\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Menu hilang tanpa hamburger locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first()\u001b[22m\n",
+                        "stack": "Error: Menu hilang tanpa hamburger\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Menu hilang tanpa hamburger locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first()\u001b[22m\n\n    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\navigationBar.spec.ts:226:76",
+                        "location": {
+                          "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\navigationBar.spec.ts",
+                          "column": 76,
+                          "line": 226
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 224 |\u001b[39m       } \u001b[36melse\u001b[39m {\n \u001b[90m 225 |\u001b[39m         \u001b[90m// Menu disembunyikan -> harus ada hamburger sebagai pengganti\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 226 |\u001b[39m         \u001b[36mawait\u001b[39m expect(hamburgerButton(page)\u001b[33m,\u001b[39m \u001b[32m\"Menu hilang tanpa hamburger\"\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 227 |\u001b[39m       }\n \u001b[90m 228 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 229 |\u001b[39m   }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\navigationBar.spec.ts",
+                            "column": 76,
+                            "line": 226
+                          },
+                          "message": "Error: Menu hilang tanpa hamburger\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Menu hilang tanpa hamburger locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#navbar button, #navbar [aria-label*=\\'menu\\' i], #navbar .hamburger, #navbar .menu-toggle').first()\u001b[22m\n\n\n\u001b[0m \u001b[90m 224 |\u001b[39m       } \u001b[36melse\u001b[39m {\n \u001b[90m 225 |\u001b[39m         \u001b[90m// Menu disembunyikan -> harus ada hamburger sebagai pengganti\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 226 |\u001b[39m         \u001b[36mawait\u001b[39m expect(hamburgerButton(page)\u001b[33m,\u001b[39m \u001b[32m\"Menu hilang tanpa hamburger\"\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 227 |\u001b[39m       }\n \u001b[90m 228 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 229 |\u001b[39m   }\u001b[0m\n\u001b[2m    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\navigationBar.spec.ts:226:76\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T10:17:16.866Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-navigationBar-TCN-1-32141-atas-breakpoint-Lebar-820px-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-navigationBar-TCN-1-32141-atas-breakpoint-Lebar-820px-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\navigationBar.spec.ts",
+                        "column": 76,
+                        "line": 226
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "aec799f2a7912f3cecfd-2fcf2e2beb4c1cf20a07",
+              "file": "common/navigationBar.spec.ts",
+              "line": 210,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T10:16:04.872Z",
+    "duration": 93587.45400000001,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
