@@ -91,7 +91,10 @@ jobs:
           "src/tests/sites/Nexus/product.spec.ts"
           "src/tests/sites/Nexus/whyUs.spec.ts"
 
-
+      - name : Generate report
+        if: always()
+        run: pnpm exec playwright show-report
+        
       - name: Catat waktu selesai
         if: always()
         run: |
