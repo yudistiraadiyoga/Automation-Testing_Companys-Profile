@@ -93,8 +93,9 @@ jobs:
 
       - name : Generate report
         if: always()
-        run: pnpm exec playwright show-report
-        
+        run: 
+          pnpm run bug-report
+
       - name: Catat waktu selesai
         if: always()
         run: |
