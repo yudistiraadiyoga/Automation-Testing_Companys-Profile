@@ -6,7 +6,7 @@ import type { SiteConfig } from "../site.types";
  */
 export const yovela: SiteConfig = {
   name: "Yovela Trade Limited",
-  baseUrl: process.env.BASE_URL ?? "https://staging.yovela-trading.com/",
+  baseUrl: process.env.BASE_URL ?? "https://yovela-trading.com/",
   pageTitle: "Yovela Trade Limited · 樂易貿易有限公司",
   ignoredErrorUrls: ["cloudflareinsights.com"],
 

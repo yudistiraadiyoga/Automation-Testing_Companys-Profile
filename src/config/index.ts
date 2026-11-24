@@ -15,7 +15,7 @@ const SITES: Record<string, SiteConfig> = {
  * Website yang sedang dites, dipilih lewat environment variable SITE.
  * Contoh: SITE=nexus pnpm test   (default: nexus)
  */
-export const SITE_NAME = process.env.SITE ?? "nexus";
+export const SITE_NAME = process.env.SITE ?? "yovela";
 
 if (!SITES[SITE_NAME]) {
   throw new Error(`Config website "${SITE_NAME}" belum ada. Pilihan: ${Object.keys(SITES).join(", ")}`);

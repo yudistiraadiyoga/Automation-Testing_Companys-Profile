@@ -32,7 +32,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI || DEMO ? 10 : 10,
+  workers: process.env.CI || DEMO ? 2 : 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   /* results.json dipakai untuk membuat bug report Excel (pnpm run bug-report) */
   reporter: [
