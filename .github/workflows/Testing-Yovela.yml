@@ -13,7 +13,7 @@
 #   reports/Bug Report - Yovela Limited - <tanggal>.xlsx
 #   reports/attachments/   -> screenshot tiap bug
 #   playwright-report/     -> HTML report
-name: Nexus Testing
+name: Yovela Testing
 
 on:
   push:

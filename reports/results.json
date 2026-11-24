@@ -35,7 +35,7 @@
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
           "/api\\.spec\\.ts/",
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -53,7 +53,7 @@
         "name": "api",
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "/api\\.spec\\.ts/"
@@ -71,7 +71,7 @@
         "name": "firefox",
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "/crossBrowsing\\.spec\\.ts/"
@@ -89,7 +89,7 @@
         "name": "webkit",
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "/crossBrowsing\\.spec\\.ts/"
@@ -107,7 +107,7 @@
         "name": "edge",
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "/crossBrowsing\\.spec\\.ts/"
@@ -125,7 +125,7 @@
         "name": "mobile-chrome",
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "/crossBrowsing\\.spec\\.ts/"
@@ -143,7 +143,7 @@
         "name": "mobile-safari",
         "testDir": "D:/Lavy/Yovela_Automation/src/tests",
         "testIgnore": [
-          "/sites[\\\\/](?!nexus[\\\\/])/"
+          "/sites[\\\\/](?!yovela[\\\\/])/"
         ],
         "testMatch": [
           "/crossBrowsing\\.spec\\.ts/"
@@ -171,7 +171,7 @@
         "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
         "timeout": 30000,
         "use": {
-          "baseURL": "https://nexus-trading.net/",
+          "baseURL": "https://yovela-trading.com/",
           "trace": {
             "mode": "on",
             "sources": false,
@@ -230,96 +230,113 @@
     "updateSnapshots": "default",
     "updateSourceMethod": "patch",
     "version": "1.64.0",
-    "workers": 2,
+    "workers": 5,
     "webServer": null
   },
   "suites": [
     {
-      "title": "common\\contact.spec.ts",
-      "file": "common/contact.spec.ts",
+      "title": "common\\footer.spec.ts",
+      "file": "common/footer.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Contact - Negative Field Name",
-          "file": "common/contact.spec.ts",
-          "line": 128,
+          "title": "Footer - Positive",
+          "file": "common/footer.spec.ts",
+          "line": 11,
           "column": 6,
-          "specs": [
+          "specs": [],
+          "suites": [
             {
-              "title": "TCC-11 Name hanya spasi: \"   \"",
-              "ok": false,
-              "tags": [],
-              "tests": [
+              "title": "TCF-01 Verifikasi konten footer tampil lengkap",
+              "file": "common/footer.spec.ts",
+              "line": 17,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Teks \"Incorporated 03 Aug 2023\"",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 69,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 9774,
-                      "error": {
-                        "message": "Error: Form seharusnya tidak terkirim\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
-                        "stack": "Error: Form seharusnya tidak terkirim\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at expectNotSubmitted (D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts:168:65)\n    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\contact.spec.ts:135:7",
-                        "location": {
-                          "file": "D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts",
-                          "column": 65,
-                          "line": 168
-                        },
-                        "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\getInTouch.helper.ts:168\n\n\u001b[0m \u001b[90m 166 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m expectNotSubmitted(page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m sentRequests\u001b[33m:\u001b[39m \u001b[33mRequest\u001b[39m[]) {\n \u001b[90m 167 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m500\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m   expect(sentRequests\u001b[33m.\u001b[39mlength\u001b[33m,\u001b[39m \u001b[32m\"Form seharusnya tidak terkirim\"\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 169 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[33mSUCCESS_MESSAGE\u001b[39m))\u001b[33m.\u001b[39mtoBeHidden()\u001b[33m;\u001b[39m\n \u001b[90m 170 |\u001b[39m }\n \u001b[90m 171 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts",
-                            "column": 65,
-                            "line": 168
-                          },
-                          "message": "Error: Form seharusnya tidak terkirim\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\helpers\\getInTouch.helper.ts:168\n\n\u001b[0m \u001b[90m 166 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m expectNotSubmitted(page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m sentRequests\u001b[33m:\u001b[39m \u001b[33mRequest\u001b[39m[]) {\n \u001b[90m 167 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m500\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m   expect(sentRequests\u001b[33m.\u001b[39mlength\u001b[33m,\u001b[39m \u001b[32m\"Form seharusnya tidak terkirim\"\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 169 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[33mSUCCESS_MESSAGE\u001b[39m))\u001b[33m.\u001b[39mtoBeHidden()\u001b[33m;\u001b[39m\n \u001b[90m 170 |\u001b[39m }\n \u001b[90m 171 |\u001b[39m\u001b[0m\n\u001b[2m    at expectNotSubmitted (D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts:168:65)\u001b[22m\n\u001b[2m    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\contact.spec.ts:135:7\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-23T04:59:54.931Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-contact-Contact---N-94c3f-me-TCC-11-Name-hanya-spasi--chromium\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-contact-Contact---N-94c3f-me-TCC-11-Name-hanya-spasi--chromium\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-contact-Contact---N-94c3f-me-TCC-11-Name-hanya-spasi--chromium\\trace.zip"
+                          "workerIndex": 154,
+                          "parallelIndex": 0,
+                          "status": "timedOut",
+                          "duration": 30825,
+                          "error": {
+                            "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                            "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts:12:8",
+                            "location": {
+                              "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts",
+                              "column": 8,
+                              "line": 12
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[90m// =====================================================================\u001b[39m\n \u001b[90m 11 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"Footer - Positive\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[36mawait\u001b[39m openHome(page)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[33mFOOTER\u001b[39m)\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts",
+                                "column": 8,
+                                "line": 12
+                              },
+                              "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[90m// =====================================================================\u001b[39m\n \u001b[90m 11 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"Footer - Positive\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[36mawait\u001b[39m openHome(page)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[33mFOOTER\u001b[39m)\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts:12:8\u001b[22m"
+                            },
+                            {
+                              "location": {
+                                "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts",
+                                "column": 32,
+                                "line": 14
+                              },
+                              "message": "Error: locator.scrollIntoViewIfNeeded: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('footer')\u001b[22m\n\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 13 |\u001b[39m     \u001b[36mawait\u001b[39m openHome(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[33mFOOTER\u001b[39m)\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"TCF-01 Verifikasi konten footer tampil lengkap\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts:14:32\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-24T04:30:08.897Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-footer-Footer---Pos-b3088-s-Incorporated-03-Aug-2023--chromium\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-footer-Footer---Pos-b3088-s-Incorporated-03-Aug-2023--chromium\\error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "D:\\Lavy\\Yovela_Automation\\test-results\\common-footer-Footer---Pos-b3088-s-Incorporated-03-Aug-2023--chromium\\trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "D:\\Lavy\\Yovela_Automation\\src\\tests\\common\\footer.spec.ts",
+                            "column": 8,
+                            "line": 12
+                          }
                         }
                       ],
-                      "errorLocation": {
-                        "file": "D:\\Lavy\\Yovela_Automation\\src\\helpers\\getInTouch.helper.ts",
-                        "column": 65,
-                        "line": 168
-                      }
+                      "status": "unexpected"
                     }
                   ],
-                  "status": "unexpected"
+                  "id": "55f9f62506754b727356-97056630691bc7d23463",
+                  "file": "common/footer.spec.ts",
+                  "line": 19,
+                  "column": 11
                 }
-              ],
-              "id": "107621c71e27941bd1ee-bd1e40a8bb04c380ddd4",
-              "file": "common/contact.spec.ts",
-              "line": 130,
-              "column": 9
+              ]
             }
           ]
         }
@@ -328,8 +345,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-23T04:59:52.700Z",
-    "duration": 15284.588000000454,
+    "startTime": "2026-11-24T04:30:06.024Z",
+    "duration": 36105.34899999993,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,
