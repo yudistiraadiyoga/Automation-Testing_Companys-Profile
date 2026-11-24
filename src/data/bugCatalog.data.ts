@@ -5,7 +5,6 @@
  *   jadi di bug report cukup ditulis 1 baris, bukan 6.
  * - Jika ada TC gagal yang belum terdaftar di sini, bug report tetap dibuat
  *   dengan deskripsi otomatis dari pesan error test. Tinggal lengkapi katalog ini nanti.
- *
  * Severity mengikuti sheet "READ!!!" di template bug report:
  *   TRIVIAL  - sangat kecil, tidak berdampak ke fungsi
  *   LOW      - kecil, dampaknya sedikit
